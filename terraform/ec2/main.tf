@@ -74,6 +74,12 @@ resource "aws_instance" "web" {
   tags = {
     Name = var.instance_name
   }
+
+  lifecycle {
+    ignore_changes = [
+      ami
+    ]
+  }
 }
 
 # publish app on ec2-instance
